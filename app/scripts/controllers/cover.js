@@ -2,13 +2,13 @@
 
 /**
  * @ngdoc function
- * @name ancoraApp.controller:MainCtrl
+ * @name ancoraApp.controller:CoverCtrl
  * @description
- * # MainCtrl
+ * # CoverCtrl
  * Controller of the ancoraApp
  */
 angular.module('ancoraApp')
-  .controller('MainCtrl', function () {
+  .controller('CoverCtrl', function () {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',

@@ -2,13 +2,13 @@
 
 /**
  * @ngdoc function
- * @name ancoraApp.controller:AboutCtrl
+ * @name ancoraApp.controller:ConnectionCtrl
  * @description
- * # AboutCtrl
+ * # ConnectionCtrl
  * Controller of the ancoraApp
  */
 angular.module('ancoraApp')
-  .controller('AboutCtrl', function () {
+  .controller('ConnectionCtrl', function () {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
