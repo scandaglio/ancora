@@ -17,7 +17,8 @@ angular
     'ngSanitize',
     'ngTouch',
     'ui.bootstrap',
-    'angular-loading-bar'
+    'angular-loading-bar',
+    'btford.markdown'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -42,6 +43,10 @@ angular
           },
           area4: function (apiService) {
             return apiService.getFile('data/area4.json')
+          }
+          ,
+          naviglio: function (apiService) {
+            return apiService.getFile('data/naviglio.json')
           }
         }
       })
