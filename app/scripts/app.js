@@ -29,7 +29,21 @@ angular
       .when('/prologo', {
         templateUrl: 'views/prologo.html',
         controller: 'PrologoCtrl',
-        controllerAs: 'prologo'
+        controllerAs: 'prologo',
+        resolve: {
+          area1: function (apiService) {
+            return apiService.getFile('data/area1.json')
+          },
+          area2: function (apiService) {
+            return apiService.getFile('data/area2.json')
+          },
+          area3: function (apiService) {
+            return apiService.getFile('data/area3.json')
+          },
+          area4: function (apiService) {
+            return apiService.getFile('data/area4.json')
+          }
+        }
       })
       .when('/cover/:area', {
         templateUrl: 'views/cover.html',
@@ -45,25 +59,6 @@ angular
         templateUrl: 'views/epilogo.html',
         controller: 'EpilogoCtrl',
         controllerAs: 'epilogo'
-      })
-      .when('/prologo', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about',
-        resolve: {
-          area1: function (apiService) {
-            return apiService.getFile('data/area1.json')
-          },
-          area2: function (apiService) {
-            return apiService.getFile('data/area2.json')
-          },
-          area3: function (apiService) {
-            return apiService.getFile('data/area3.json')
-          },
-          area4: function (apiService) {
-            return apiService.getFile('data/area4.json')
-          }
-        }
       })
       .otherwise({
         redirectTo: '/'
