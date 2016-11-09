@@ -53,7 +53,30 @@ angular
       .when('/connection/:area', {
         templateUrl: 'views/connection.html',
         controller: 'ConnectionCtrl',
-        controllerAs: 'connection'
+        controllerAs: 'connection',
+        resolve: {
+          airbnb: function (apiService, $route) {
+            return apiService.getFile('data/airbnb.tsv', $route.current.params.area)
+          },
+          idealista: function (apiService, $route) {
+            return apiService.getFile('data/idealista.tsv', $route.current.params.area )
+          },
+          osm: function (apiService, $route) {
+            return apiService.getFile('data/osm.tsv', $route.current.params.area )
+          },
+          pgt: function (apiService, $route) {
+            return apiService.getFile('data/pgt.tsv', $route.current.params.area )
+          },
+          area: function (apiService, $route) {
+            return apiService.getFile('data/'+$route.current.params.area+'.json' )
+          },
+          naviglio: function (apiService, $route) {
+            return apiService.getFile('data/naviglio.json' )
+          },
+          startend: function (apiService, $route) {
+            return apiService.getFile('data/startend.tsv',$route.current.params.area)
+          }
+        }
       })
       .when('/epilogo', {
         templateUrl: 'views/epilogo.html',
