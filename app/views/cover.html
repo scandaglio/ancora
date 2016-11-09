@@ -1,1 +1,18 @@
-<p>This is the cover view.</p>
+<div class="row">
+  <div class="col-md-6">
+    <videogular class="videoConnection"
+      vg-auto-play="true"
+      vg-player-ready="onPlayerReady($API)">
+        <vg-media vg-src="videoconfig.sources"
+              vg-loop="true"
+              vg-native-controls="false">
+        </vg-media>
+    </videogular>
+  </div>
+  <div class="col-md-6">
+    <div btf-markdown ng-include="mdUrl"></div>
+    <a class="btn btn-default" ng-href="#/connection/{{area}}">
+      pedala
+    </a>
+  </div>
+</div>
