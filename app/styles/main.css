@@ -25,3 +25,7 @@ bg-map {
 .cursor-transparent {
   pointer-events: none;
 }
+
+.videoConnection video{
+  width: 100%;
+}

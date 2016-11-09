@@ -1,4 +1,18 @@
-<div id="mapConnection" mapconnection></div>
+<div class="row">
+  <div class="col-md-4">
+    <div id="mapConnection" mapconnection></div>
+  </div>
+  <div class="col-md-8">
+    <videogular class="videoConnection"
+      vg-auto-play="true"
+      vg-update-time="onUpdateTime($currentTime, $duration)"
+      vg-player-ready="onPlayerReady($API)">
+        <vg-media vg-src="videoconfig.sources"
+              vg-native-controls="true">
+        </vg-media>
+    </videogular>
+  </div>
+</div>
 <div class="row">
   <div class="col-md-4">
     <div class="barchart" data="chartOsm" barchart></div>

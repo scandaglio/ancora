@@ -18,7 +18,8 @@ angular
     'ngTouch',
     'ui.bootstrap',
     'angular-loading-bar',
-    'btford.markdown'
+    'btford.markdown',
+    'com.2fdevs.videogular'
   ])
   .config(function ($routeProvider) {
     $routeProvider

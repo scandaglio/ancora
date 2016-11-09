@@ -13,6 +13,22 @@ angular.module('ancoraApp')
       replace: false,
       link: function postLink(scope, element, attrs) {
 
+        var startend = togeojsonFilter(scope.startend, ['type', 'startTime']);
+        var startPoint = startend.features.filter(function(d){return d.properties.type == 'start'})[0],
+            endPoint = startend.features.filter(function(d){return d.properties.type == 'end'})[0]
+
+        var naviglioPoint = turf.explode(scope.naviglio).features.map(function(d){
+          return d.geometry.coordinates
+        })
+        var naviglioLine = turf.lineString(naviglioPoint.reverse());
+        //cut naviglio
+        var sliced = turf.lineSlice(startPoint, endPoint, naviglioLine);
+        var sliceLength = turf.lineDistance(sliced, 'kilometers');
+        var sliceDuration = +endPoint.properties.startTime - +startPoint.properties.startTime;
+        var distanceScale = d3.scaleLinear()
+          .domain([+startPoint.properties.startTime, +endPoint.properties.startTime])
+          .range([0, sliceLength])
+
         var center = turf.centroid(scope.area);
 
         mapboxgl.accessToken = 'pk.eyJ1IjoidGVvIiwiYSI6IllvZUo1LUkifQ.dirqtn275pAKdnqtLM2HSw';
@@ -131,12 +147,36 @@ angular.module('ancoraApp')
               }
           });
 
+          map.addSource("pointer", {
+              "type": "geojson",
+              "data": startPoint
+          });
+
+          map.addLayer({
+              "id": "pointer",
+              "type": "circle",
+              "source": "pointer",
+              "paint": {
+                'circle-color': '#f00'
+              }
+          });
+
           // map.setPaintProperty('water', 'fill-color', '#000');
           // map.setPaintProperty('building', 'fill-color', '#000');
           // map.setPaintProperty('landuse', 'fill-color', '#000');
           // map.setPaintProperty('road', 'line-color', '#000');
 
-        });
+        }); //end map load
+
+        scope.$watch('currentTime', function(newValue, oldValue){
+          if(newValue != oldValue && newValue){
+            if(newValue >= distanceScale.domain()[0] && newValue < distanceScale.domain()[1]){
+              var km = distanceScale(newValue);
+              var newPoint = turf.along(sliced, km, 'kilometers');
+              map.getSource('pointer').setData(newPoint);
+            }
+          }//end if change
+        })
       }
     };
   });

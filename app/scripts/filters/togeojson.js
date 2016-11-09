@@ -15,7 +15,7 @@ angular.module('ancoraApp')
       input.forEach(function(d){
         var props = {}
         properties.forEach(function(e){
-          props.e = d[e];
+          props[e] = d[e];
         })
         fc.push(turf.point([+d.lon, +d.lat], props));
       })
