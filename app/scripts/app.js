@@ -17,7 +17,8 @@ angular
     'ngSanitize',
     'ngTouch',
     'ui.bootstrap',
-    'angular-loading-bar'
+    'angular-loading-bar',
+    'btford.markdown'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -31,17 +32,21 @@ angular
         controller: 'PrologoCtrl',
         controllerAs: 'prologo',
         resolve: {
-          area1: function (apiService) {
-            return apiService.getFile('data/area1.json')
+          melchiorre: function (apiService) {
+            return apiService.getFile('data/melchiorre.json')
           },
-          area2: function (apiService) {
-            return apiService.getFile('data/area2.json')
+          isola: function (apiService) {
+            return apiService.getFile('data/isola.json')
           },
-          area3: function (apiService) {
-            return apiService.getFile('data/area3.json')
+          centro: function (apiService) {
+            return apiService.getFile('data/centro.json')
           },
-          area4: function (apiService) {
-            return apiService.getFile('data/area4.json')
+          darsena: function (apiService) {
+            return apiService.getFile('data/darsena.json')
+          }
+          ,
+          naviglio: function (apiService) {
+            return apiService.getFile('data/naviglio.json')
           }
         }
       })

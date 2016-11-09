@@ -8,10 +8,14 @@
  * Controller of the ancoraApp
  */
 angular.module('ancoraApp')
-  .controller('PrologoCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('PrologoCtrl', function ($scope, melchiorre, isola, centro, darsena, naviglio) {
+    $scope.geometries = {
+    	'melchiorre': melchiorre,
+    	'isola': isola,
+    	'centro': centro,
+    	'darsena': darsena,
+    	'naviglio': naviglio
+    }
+
+
   });
