@@ -50,7 +50,7 @@ angular.module('ancoraApp')
         ], [
             bbox[2],
             bbox[3]
-        ]],{padding:10});
+        ]],{padding:50});
 
         map.on('load', function () {
 
@@ -97,7 +97,7 @@ angular.module('ancoraApp')
               },
               "paint": {
                 'line-color': 'rgba(255,255,255,1)',
-                'line-width': 3
+                'line-width': 1
               }
           });
 
@@ -168,11 +168,21 @@ angular.module('ancoraApp')
           });
 
           map.addLayer({
+              "id": "pointerBorder",
+              "type": "circle",
+              "source": "pointer",
+              "paint": {
+                'circle-color': '#000',
+                "circle-radius": 7
+              }
+          });
+
+          map.addLayer({
               "id": "pointer",
               "type": "circle",
               "source": "pointer",
               "paint": {
-                'circle-color': '#f00'
+                'circle-color': '#fff'
               }
           });
 
@@ -184,8 +194,8 @@ angular.module('ancoraApp')
         }); //end map load
 
         scope.$watch('currentTime', function(newValue, oldValue){
-          if(newValue != oldValue && newValue){
-            if(newValue >= distanceScale.domain()[0] && newValue < distanceScale.domain()[1]){
+          if(newValue != oldValue && newValue ){
+            if(newValue > distanceScale.domain()[0] && newValue < distanceScale.domain()[1]){
               var km = distanceScale(newValue);
               var newPoint = turf.along(sliced, km, 'kilometers');
               map.getSource('pointer').setData(newPoint);

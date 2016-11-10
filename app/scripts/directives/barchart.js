@@ -11,8 +11,10 @@ angular.module('ancoraApp')
     return {
       restrict: 'A',
       replace: false,
+      template: '',
       scope: {
-        data: '='
+        data: '=',
+        ydomain: '='
       },
       link: function postLink(scope, element, attrs) {
 
@@ -21,7 +23,6 @@ angular.module('ancoraApp')
             chartHeight = attrs.height?+attrs.height:container.node().getBoundingClientRect().height,
             chartWidth = attrs.width?+attrs.width:container.node().getBoundingClientRect().width,
             marginleft = attrs.marginleft?+attrs.marginleft:chartWidth/2;
-
 
         var svg = container.append('svg')
               .attr("width", chartWidth)
@@ -36,12 +37,19 @@ angular.module('ancoraApp')
         var g = svg.append("g")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-            y.domain(data.map(function(d) { return d.key; }));
+            if(scope.ydomain){
+              data = data.filter(function(d){
+                return scope.ydomain.indexOf(d.key)>-1;
+              })
+              y.domain(scope.ydomain);
+            }else{
+              y.domain(data.map(function(d) { return d.key; }));
+            }
             x.domain([0, d3.max(data, function(d) { return d.value; })]);
 
             g.append("g")
                 .attr("class", "axis axis--y")
-                .call(d3.axisLeft(y))
+                .call(d3.axisLeft(y));
 
             g.selectAll(".bar")
               .data(data)
@@ -63,7 +71,7 @@ angular.module('ancoraApp')
                 .attr("y", function(d) { return y(d.key)+(y.bandwidth()/2); })
                 .attr('fill', 'black')
                 .text(function(d){
-                  return d.value
+                    return d.value
                 })
       }
     };
