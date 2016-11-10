@@ -8,7 +8,12 @@
  * Controller of the ancoraApp
  */
 angular.module('ancoraApp')
-  .controller('EpilogoCtrl', function ($scope, $routeParams, $sce) {
+  .controller('EpilogoCtrl', function ($scope, $routeParams, $sce, $window) {
+
+    var ratio = $window.innerWidth/$window.innerHeight;
+    var videoRatio = 16/9;
+
+    $scope.videoClass=ratio<=videoRatio?'videoH':'videoW'
 
     $scope.title = 'Milano scoperta:<br>riaprire i Navigli<br>per una città cartolina'
     $scope.onPlayerReady = function(API) {

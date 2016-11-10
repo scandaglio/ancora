@@ -69,6 +69,31 @@ h1,h2,h3,h4,h5,h6{
   color: white;
 }
 
+
+.coverHome{
+  height: 100vh;
+}
+
+#inoltre p{
+  font-size: 16px;
+  column-count: 2;
+}
+
+#info p{
+  font-size: 18px;
+}
+
+#info p a{
+  font-weight: bold;
+  text-decoration: underline;
+  color: white;
+}
+
+#info p a:hover{
+  text-decoration: line-through;;
+  color: white;
+}
+
 .bg-map {
   height: 100%;
   width: 100%;
@@ -171,6 +196,17 @@ h1,h2,h3,h4,h5,h6{
 
 .videoConnection video{
   width: 100%;
+  height: auto;
+}
+
+.videoW video{
+  width: 100%;
+  height: auto;
+}
+
+.videoH video{
+  width: auto;
+  height: 100%;
 }
 
 #chartsConnection{
@@ -267,6 +303,15 @@ a.navbar-brand {
   /*background-color: black;*/
 }
 
+.navbar-default .navbar-nav > li > a.prologo{
+  color: black;
+}
+
+.navbar-default .navbar-nav > li > a.prologo:hover{
+  text-decoration: line-through;
+  color: black;
+}
+
 .navbar-default .navbar-nav > li > a{
   vertical-align: middle;
   color: white;
@@ -278,7 +323,7 @@ a.navbar-brand {
 }
 
 .navbar-default .navbar-nav > li > a:hover{
-  border-bottom: 1px solid white;
+  text-decoration: line-through;
   color: white;
 }
 

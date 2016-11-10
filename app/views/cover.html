@@ -13,14 +13,26 @@
         <a class="navbar-brand" href="#/">scandaglio</a>
       </div>
 
-      <div class="collapse navbar-collapse" id="js-navbar-collapse">
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+              <li><a href="#/prologo">Prologo</a></li>
+              <li><a href="#/cover/melchiorre">Melchiorre Gioia</a></li>
+              <li class="connection"><a href="#/connection/melchiorre"><i class="fa fa-bicycle" aria-hidden="true"></i></a></li>
+              <li><a href="#/cover/isola">Isola / Porta Nuova</a></li>
+              <li class="connection"><a href="#/connection/isola"><i class="fa fa-bicycle" aria-hidden="true"></i></a></li>
+              <li><a href="#/cover/centro">Centro Storico</a></li>
+              <li class="connection"><a href="#/connection/centro"><i class="fa fa-bicycle" aria-hidden="true"></i></a></li>
+              <li><a href="#/cover/darsena">Darsena</a></li>
+              <li class="connection"><a href="#connection/darsena"><i class="fa fa-bicycle" aria-hidden="true"></i></a></li>
+              <li><a href="#/epilogo">Epilogo</a></li>
+          </ul>
       </div>
     </div>
   </div>
 </div>
 
 <div class="videoWrapper">
-  <videogular class="videoConnection"
+  <videogular ng-class="videoClass"
     vg-auto-play="true"
     vg-player-ready="onPlayerReady($API)">
       <vg-media vg-src="videoconfig.sources"
@@ -37,6 +49,7 @@
       <span class="introHome">
         <a class="btn btn-default btn-lg pull-right" ng-href="#/connection/{{area}}">
           pedala
+          <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
         </a>
       </span>
     </div>

@@ -8,7 +8,12 @@
  * Controller of the ancoraApp
  */
 angular.module('ancoraApp')
-  .controller('CoverCtrl', function ($scope, $routeParams, $sce) {
+  .controller('CoverCtrl', function ($scope, $routeParams, $sce, $window) {
+    var ratio = $window.innerWidth/$window.innerHeight;
+    var videoRatio = 16/9;
+
+    $scope.videoClass=ratio<=videoRatio?'videoH':'videoW'
+
     $scope.area = $routeParams.area;
     $scope.mdUrl = 'texts/' + $routeParams.area + '.md';
     $scope.onPlayerReady = function(API) {

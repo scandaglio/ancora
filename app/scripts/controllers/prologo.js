@@ -17,15 +17,15 @@ angular.module('ancoraApp')
     	'naviglio': naviglio
     }
 
-    $scope.onPlayerReady = function(API) {
-      $scope.videoAPI = API;
-      $scope.videoAPI.setVolume(0);
-    };
-
-    $scope.videoconfig = {
-      sources: [
-        {src: $sce.trustAsResourceUrl("videos/prologo.mp4"), type: "video/mp4"}
-      ]
-    }
+    // $scope.onPlayerReady = function(API) {
+    //   $scope.videoAPI = API;
+    //   $scope.videoAPI.setVolume(0);
+    // };
+    //
+    // $scope.videoconfig = {
+    //   sources: [
+    //     {src: $sce.trustAsResourceUrl("videos/prologo.mp4"), type: "video/mp4"}
+    //   ]
+    // }
 
   });

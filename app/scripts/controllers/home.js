@@ -8,7 +8,13 @@
  * Controller of the ancoraApp
  */
 angular.module('ancoraApp')
-  .controller('HomeCtrl', function ($scope, $sce) {
+  .controller('HomeCtrl', function ($scope, $sce, $window) {
+
+    var ratio = $window.innerWidth/$window.innerHeight;
+    var videoRatio = 16/9;
+
+    $scope.videoClass=ratio<=videoRatio?'videoH':'videoW'
+
     $scope.title = 'La scoperta del Naviglio';
     $scope.onPlayerReady = function(API) {
       $scope.videoAPI = API;

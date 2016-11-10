@@ -13,14 +13,17 @@
         <a class="navbar-brand" href="#/">scandaglio</a>
       </div>
 
-      <div class="collapse navbar-collapse" id="js-navbar-collapse">
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+                <li><a  ng-href="#/epilogo">Epilogo</a></li>
+          </ul>
       </div>
     </div>
   </div>
 </div>
 
 <div class="videoWrapper">
-  <videogular class="videoConnection"
+  <videogular ng-class="videoClass"
     vg-auto-play="true"
     vg-player-ready="onPlayerReady($API)">
       <vg-media vg-src="videoconfig.sources"

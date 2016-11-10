@@ -8,7 +8,12 @@
  * Controller of the ancoraApp
  */
 angular.module('ancoraApp')
-  .controller('ConnectionCtrl', function ($scope, $routeParams, $sce, airbnb, idealista, osm, pgt, area, naviglio, startend) {
+  .controller('ConnectionCtrl', function ($scope, $routeParams, $sce, airbnb, idealista, osm, pgt, area, naviglio, startend, $window) {
+    var ratio = $window.innerWidth/$window.innerHeight;
+    var videoRatio = 16/9;
+
+    $scope.videoClass=ratio<=videoRatio?'videoH':'videoW'
+    
     $scope.areaTitle = $routeParams.area
     $scope.area = area;
     $scope.naviglio = naviglio;
