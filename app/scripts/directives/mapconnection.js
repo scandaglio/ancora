@@ -7,7 +7,7 @@
  * # mapconnection
  */
 angular.module('ancoraApp')
-  .directive('mapconnection', function (togeojsonFilter) {
+  .directive('mapconnection', function (togeojsonFilter, $timeout) {
     return {
       restrict: 'A',
       replace: false,
@@ -36,6 +36,7 @@ angular.module('ancoraApp')
             container: element[0],
             style: 'mapbox://styles/teo/ciu1f5enw00i52iol853ypazc',
             center: center.geometry.coordinates,
+            interactive: false,
             minZoom:8,
             maxZoom:17,
             zoom: 13
@@ -53,6 +54,15 @@ angular.module('ancoraApp')
 
         map.on('load', function () {
 
+          // map.setPaintProperty('water', 'fill-color', 'rgba(0,0,0,0)');
+          // map.setPaintProperty('building', 'fill-color', 'rgba(0,0,0,0)');
+          // map.setPaintProperty('landuse', 'fill-color', 'rgba(0,0,0,0)');
+          // map.setPaintProperty('road', 'line-color', 'rgba(0,0,0,0)');
+          map.setLayoutProperty('road', 'visibility', 'none');
+          map.setLayoutProperty('water', 'visibility', 'none');
+          map.setLayoutProperty('building', 'visibility', 'none');
+          map.setLayoutProperty('landuse', 'visibility', 'none');
+
           map.addSource("area", {
               "type": "geojson",
               "data": scope.area
@@ -67,8 +77,8 @@ angular.module('ancoraApp')
                 "line-join": "round"
               },
               "paint": {
-                'line-color': '#f00',
-                'line-width': 3
+                'line-color': 'rgba(255,255,255,1)',
+                'line-width': 2
               }
           });
 
@@ -86,7 +96,7 @@ angular.module('ancoraApp')
                 "line-join": "round"
               },
               "paint": {
-                'line-color': '#f00',
+                'line-color': 'rgba(255,255,255,1)',
                 'line-width': 3
               }
           });
@@ -101,7 +111,8 @@ angular.module('ancoraApp')
               "type": "circle",
               "source": "airbnb",
               "paint": {
-                'circle-color': '#0f0'
+                'circle-color': 'rgba(255,255,255,0.75)',
+                "circle-radius": 2
               }
           });
 
@@ -115,8 +126,9 @@ angular.module('ancoraApp')
               "type": "circle",
               "source": "idealista",
               "paint": {
-                'circle-color': '#0f0'
-              }
+                  'circle-color': 'rgba(255,255,255,0.75)',
+                  "circle-radius": 2
+                }
           });
 
           map.addSource("pgt", {
@@ -129,7 +141,8 @@ angular.module('ancoraApp')
               "type": "circle",
               "source": "pgt",
               "paint": {
-                'circle-color': '#00f'
+                'circle-color': 'rgba(255,255,255,0.75)',
+                "circle-radius": 2
               }
           });
 
@@ -143,9 +156,11 @@ angular.module('ancoraApp')
               "type": "circle",
               "source": "osm",
               "paint": {
-                'circle-color': '#00f'
+                'circle-color': 'rgba(255,255,255,0.75)',
+                "circle-radius": 2
               }
           });
+
 
           map.addSource("pointer", {
               "type": "geojson",
@@ -161,10 +176,10 @@ angular.module('ancoraApp')
               }
           });
 
-          // map.setPaintProperty('water', 'fill-color', '#000');
-          // map.setPaintProperty('building', 'fill-color', '#000');
-          // map.setPaintProperty('landuse', 'fill-color', '#000');
-          // map.setPaintProperty('road', 'line-color', '#000');
+          $timeout(function(){
+            scope.videoAPI.play();
+          }, 1500);
+
 
         }); //end map load
 

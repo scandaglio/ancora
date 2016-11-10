@@ -19,13 +19,14 @@ angular.module('ancoraApp')
         var data = scope.data,
             container = d3.select(element[0]),
             chartHeight = attrs.height?+attrs.height:container.node().getBoundingClientRect().height,
-            chartWidth = attrs.width?+attrs.width:container.node().getBoundingClientRect().width;
+            chartWidth = attrs.width?+attrs.width:container.node().getBoundingClientRect().width,
+            marginleft = attrs.marginleft?+attrs.marginleft:chartWidth/2;
 
 
         var svg = container.append('svg')
               .attr("width", chartWidth)
               .attr("height", chartHeight),
-            margin = {top: 20, right: 20, bottom: 30, left: 120},
+            margin = {top: 10, right: 25, bottom: 5, left: marginleft},
             width = chartWidth - margin.left - margin.right,
             height = chartHeight - margin.top - margin.bottom;
 
@@ -38,12 +39,6 @@ angular.module('ancoraApp')
             y.domain(data.map(function(d) { return d.key; }));
             x.domain([0, d3.max(data, function(d) { return d.value; })]);
 
-
-            g.append("g")
-                .attr("class", "axis axis--x")
-                .attr("transform", "translate(0," + height + ")")
-                .call(d3.axisBottom(x).ticks(5));
-
             g.append("g")
                 .attr("class", "axis axis--y")
                 .call(d3.axisLeft(y))
@@ -54,8 +49,22 @@ angular.module('ancoraApp')
                 .attr("class", "bar")
                 .attr("x", function(d) { return 0; })
                 .attr("y", function(d) { return y(d.key); })
+                .attr('fill', 'white')
                 .attr("height", y.bandwidth())
                 .attr("width", function(d) { return x(d.value); });
+
+            g.selectAll(".barValue")
+              .data(data)
+              .enter().append("text")
+                .attr("class", "barValue")
+                .attr("alignment-baseline", "central")
+                .attr("text-anchor","end")
+                .attr("x", function(d) { return (x(d.value) - 2) })
+                .attr("y", function(d) { return y(d.key)+(y.bandwidth()/2); })
+                .attr('fill', 'black')
+                .text(function(d){
+                  return d.value
+                })
       }
     };
   });

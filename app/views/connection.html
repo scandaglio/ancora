@@ -1,28 +1,39 @@
-<div class="row">
-  <div class="col-md-4">
-    <div id="mapConnection" mapconnection></div>
-  </div>
-  <div class="col-md-8">
-    <videogular class="videoConnection"
-      vg-auto-play="true"
-      vg-update-time="onUpdateTime($currentTime, $duration)"
-      vg-player-ready="onPlayerReady($API)">
-        <vg-media vg-src="videoconfig.sources"
-              vg-native-controls="true">
-        </vg-media>
-    </videogular>
-  </div>
+<div class="videoWrapper">
+  <videogular class="videoConnection"
+    vg-auto-play="false"
+    vg-update-time="onUpdateTime($currentTime, $duration)"
+    vg-player-ready="onPlayerReady($API)">
+      <vg-media vg-src="videoconfig.sources"
+            vg-native-controls="false">
+      </vg-media>
+  </videogular>
 </div>
-<div class="row">
-  <div class="col-md-4">
-    <div class="barchart" data="chartOsm" barchart></div>
+<div class="container-fluid" id="containerConnection">
+  <div class="row" id="mapConnection">
+    <div class="col-md-12 fullHeight">
+      <div class="fullHeight" mapconnection></div>
+    </div>
   </div>
-  <div class="col-md-4">
-    <div class="barchart" data="chartPgt" barchart></div>
-  </div>
-  <div class="col-md-4">
-    <div data="chartRent" height="100" barchart></div>
-    <div data="airbnb" height="100" candlestick></div>
-    <div data="idealista" height="100" candlestick></div>
+  <div class="row" id="chartsConnection">
+    <div class="col-md-4 fullHeight">
+      <div class="chartContainer fullHeight">
+      <h5>servizi commerciali</h5>
+      <div class="barchart" data="chartOsm" height="175" barchart></div>
+      </div>
+    </div>
+    <div class="col-md-4 fullHeight">
+      <div class="chartContainer fullHeight">
+        <h5>servizi pubblici</h5>
+        <div class="barchart" data="chartPgt" height="175" barchart></div>
+      </div>
+    </div>
+    <div class="col-md-4 fullHeight">
+      <div class="chartContainer fullHeight">
+        <h5>Numero Affitti</h5>
+        <div data="chartRent" height="70" marginleft="100" barchart></div>
+        <div data="airbnb" height="40" legend="prezzo a notte airbnb" candlestick></div>
+        <div data="idealista" height="40" legend="prezzo al m2 idealista" candlestick></div>
+      </div>
+    </div>
   </div>
 </div>

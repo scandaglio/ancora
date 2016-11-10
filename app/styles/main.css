@@ -1,10 +1,70 @@
-#mapConnection{
-  height: 500px;
-  background: black;
+body{
+  padding-top: 70px;
+  font-family: 'Noto Serif', serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing : grayscale;
+  text-rendering: optimizeLegibility;
+  background-color: black;
+  color: white;
+
 }
 
-.barchart{
-  height: 300px;
+h1,h2,h3,h4,h5,h6{
+  font-family: 'Space Mono', monospace;
+}
+
+.navbar {
+  font-family: 'Space Mono', monospace;
+  font-size: 28px;
+  color: #FFFFFF;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.navbar .navbar-brand{
+  font-weight: bold;
+}
+
+.navbar-default .navbar-brand:focus,
+.navbar-default .navbar-brand:hover{
+  color: white
+}
+
+#contactus{
+  position: fixed;
+  bottom: 0px;
+  top: 0px;
+  right: 0px;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+
+  -webkit-flex-direction: column;
+  -webkit-justify-content: center;
+
+  padding: 0px 15px;
+  /*background-color: black;*/
+}
+
+#contactus a{
+  font-family: 'Space Mono', monospace;
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  writing-mode: vertical-lr;
+  -webkit-writing-mode: vertical-lr;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+}
+
+#contactus a{
+  cursor: help;
+}
+
+#contactus a:hover{
+  text-decoration: none;
+  color: white;
 }
 
 bg-map {
@@ -26,6 +86,94 @@ bg-map {
   pointer-events: none;
 }
 
+/* connection start*/
+
+#containerConnection{
+  height: 100vh;
+  margin-top: -70px;
+  overflow: hidden;
+  /*display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: -webkit-flex;
+  -webkit-flex-direction: column;
+  -webkit-justify-content: center;
+  -webkit-align-items: center;*/
+  /*padding-top:70px;*/
+}
+
+.videoWrapper{
+  position: absolute;
+  left:0;
+  top:0;
+  bottom: 0;
+  right: 0;
+  overflow: hidden;
+}
+
 .videoConnection video{
   width: 100%;
 }
+
+#chartsConnection{
+  height: 235px;
+  padding-bottom: 15px;
+}
+
+#chartsConnection .chartContainer{
+  border: 3px solid white;
+}
+
+#chartsConnection .barValue,
+#chartsConnection .legend{
+  font-size: 10px;
+  letter-spacing: 1px;
+  font-family: 'Space Mono', monospace;
+  font-weight: bold;
+}
+
+#chartsConnection .axis.axis--y path,
+#chartsConnection .axis.axis--y line{
+  display: none;
+}
+
+#chartsConnection .axis.axis--x path,
+#chartsConnection .axis.axis--x line{
+  stroke: white;
+}
+
+
+
+#chartsConnection .axis.axis--y text,
+#chartsConnection .legendText{
+  font-size: 10px;
+  font-family: 'Space Mono', monospace;
+  fill: white;
+}
+
+#chartsConnection .chartContainer h5{
+  text-transform: uppercase;
+  font-weight: bold;
+  margin: 0px;
+  padding: 10px;
+  border-bottom: 3px solid white;
+}
+
+#mapConnection{
+  height: calc(100% - 235px);
+}
+
+#mapConnection .mapboxgl-ctrl-attrib{
+  display: none;
+}
+
+/* connection end*/
+
+/* utility start*/
+
+.fullHeight{
+  height: 100%;
+}
+
+/* utility endt*/

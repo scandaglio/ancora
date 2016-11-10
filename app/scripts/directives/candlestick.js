@@ -25,7 +25,7 @@ angular.module('ancoraApp')
         var svg = container.append('svg')
               .attr("width", chartWidth)
               .attr("height", chartHeight),
-            margin = {top: 20, right: 20, bottom: 30, left: 120},
+            margin = {top: 10, right: 25, bottom: 10, left: 180},
             width = chartWidth - margin.left - margin.right,
             height = chartHeight - margin.top - margin.bottom;
 
@@ -50,24 +50,36 @@ angular.module('ancoraApp')
             .attr("cx", function(d){return x(d)})
             .attr("cy", height/2)
             .attr("r", 2)
+            .attr('fill', 'white')
+            .attr('stroke', 'black')
             .filter(function(d,i){
               return i == 1
             })
             .attr("r", 4)
 
-        g.selectAll(".legend")
-          .data([x.domain()[0],median,x.domain()[1]])
-          .enter().append("text")
-            .attr("class", "legend")
-            .attr("x", function(d){return x(d)})
-            .attr("y", (height/2)+20)
-            .attr("text-anchor", "middle")
-            .text(function(d){return d})
-            .filter(function(d,i){
-              return i == 1
-            })
-            .attr("y", (height/2)-10)
-            .text(function(d){return d + '€'})
+        g.append("text")
+            .attr("class", "legendText")
+            .attr("x", -15)
+            .attr("y", (height/2))
+            .attr("text-anchor", "end")
+            .attr("alignment-baseline", "central")
+            .text(attrs.legend)
+            .attr('fill','white')
+
+          g.selectAll(".legend")
+            .data([x.domain()[0],median,x.domain()[1]])
+            .enter().append("text")
+              .attr("class", "legend")
+              .attr("x", function(d){return x(d)})
+              .attr("y", (height/2)+20)
+              .attr("text-anchor", "middle")
+              .text(function(d){return d})
+              .attr('fill','white')
+              .filter(function(d,i){
+                return i == 1
+              })
+              .attr("y", (height/2)-10)
+              .text(function(d){return d + '€'})
       }
     };
   });
