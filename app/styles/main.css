@@ -160,7 +160,7 @@ h1,h2,h3,h4,h5,h6{
 }
 
 .videoWrapper{
-  position: absolute;
+  position: fixed;
   left:0;
   top:0;
   bottom: 0;
@@ -329,4 +329,26 @@ a.navbar-brand {
 
 .introHome .esplora{
   margin-bottom: 20px;
+}
+
+.introEpilogo p{
+    font-size: 24px;
+    /*font-weight: bold;*/
+    margin-bottom: 30px;
+}
+
+.introEpilogo p:nth-child(2){
+    font-size: 24px;
+    text-decoration: underline;
+    /*font-weight: bold;*/
+    margin-bottom: 30px;
+}
+
+.introEpilogo h1{
+    font-family: 'Noto Serif', serif;
+    font-size: 38px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    line-height: 50px;
+    text-decoration: line-through;
 }
