@@ -1,10 +1,53 @@
+body {
+  /*padding-top: 70px;*/
+  font-family: 'Noto Serif', serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  background-color: rgba(0,0,0,1);
+  color: white;
+}
+
 #mapConnection{
-  height: 500px;
+  padding-bottom: 100%;
   background: black;
+}
+
+.chart-contaier:first-child {
+  margin-top: 15px;
+  box-sizing: border-box;
+  border: 1px solid white;
+}
+
+.chart-contaier {
+  border: 1px solid white;
+}
+
+.chart-contaier > .title{
+  font-family: 'Space Mono', monospace;
+  font-weight: bold;
+  text-transform: uppercase;
+  vertical-align: middle;
+  height: 30px;
+  border-bottom: 1px solid white;
+  padding: 4px 0px 0px 8px;
 }
 
 .barchart{
   height: 300px;
+}
+
+.barchart text{
+  font-family: 'Space Mono', monospace;
+  fill: white;
+  font-size: 14px;
+  text-transform: lowercase;
+}
+.barchart .bar{
+  fill: white;
+}
+.barchart .counters{
+  fill:black;
 }
 
 bg-map {
@@ -28,4 +71,58 @@ bg-map {
 
 .videoConnection video{
   width: 100%;
+}
+
+.header > .navbar {
+  border-radius: 0px;
+  border-bottom: 1px solid white;
+    background-color: rgba(0,0,0,0.7);
+}
+
+
+.navbar {
+  font-family: 'Space Mono', monospace;
+  font-size: 12px;
+  color: #FFFFFF;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 0px;
+  vertical-align: middle;
+  border: none;
+  border-radius: 0px;
+}
+
+a.navbar-brand {
+  text-transform: uppercase;
+  color: white !important;
+  font-weight: 600;
+}
+
+.navbar-nav li{
+  vertical-align: middle;
+  color: white;
+  /*background-color: black;*/
+}
+
+.navbar-default .navbar-nav > li > a{
+  vertical-align: middle;
+  color: white;
+  /*background-color: black;*/
+  border-bottom: 1px solid transparent;
+  font-weight: 600;
+  margin-bottom: 12px;
+  padding-bottom: 2px;
+}
+
+.navbar-default .navbar-nav > li > a:hover{
+  border-bottom: 1px solid white;
+  color: white;
+}
+
+.introHome {
+    /*color: white;*/
+    text-decoration: underline;
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 30px;
 }

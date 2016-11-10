@@ -11,14 +11,15 @@ angular.module('ancoraApp')
     return {
       restrict: 'A',
       replace: false,
+      template: '',
       scope: {
         data: '='
       },
       link: function postLink(scope, element, attrs) {
-
+        console.log(scope.data)
         var data = scope.data,
             container = d3.select(element[0]),
-            chartHeight = attrs.height?+attrs.height:container.node().getBoundingClientRect().height,
+            chartHeight = attrs.height?+attrs.height:container.node().getBoundingClientRect().height-30,
             chartWidth = attrs.width?+attrs.width:container.node().getBoundingClientRect().width;
 
 
@@ -46,7 +47,7 @@ angular.module('ancoraApp')
 
             g.append("g")
                 .attr("class", "axis axis--y")
-                .call(d3.axisLeft(y))
+                .call(d3.axisLeft(y));
 
             g.selectAll(".bar")
               .data(data)
@@ -56,6 +57,17 @@ angular.module('ancoraApp')
                 .attr("y", function(d) { return y(d.key); })
                 .attr("height", y.bandwidth())
                 .attr("width", function(d) { return x(d.value); });
+
+            g.selectAll(".counters")
+              .data(data)
+              .enter().append("text")
+                .attr("class", "counters")
+                .attr("x", function(d) { return x(d.value)-15; })
+                .attr("y", function(d) { return y(d.key) + y.bandwidth()/2 + 5; })
+                .text(function(d){
+                  console.log(y.bandwidth() )
+                  return d.value;
+                })
       }
     };
   });

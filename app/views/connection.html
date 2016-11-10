@@ -1,6 +1,9 @@
 <div class="row">
-  <div class="col-md-4">
-    <div id="mapConnection" mapconnection></div>
+  <div class="col-md-3">
+    <div class="chart-contaier">
+      <div class="title">{{areaTitle}}</div>
+      <div id="mapConnection" mapconnection></div>
+    </div>
   </div>
   <div class="col-md-8">
     <videogular class="videoConnection"
@@ -15,14 +18,23 @@
 </div>
 <div class="row">
   <div class="col-md-4">
-    <div class="barchart" data="chartOsm" barchart></div>
+    <div class="chart-contaier">
+      <div class="title">Servizi OSM</div>
+      <div class="barchart" data="chartOsm" barchart></div>
+    </div>
   </div>
   <div class="col-md-4">
-    <div class="barchart" data="chartPgt" barchart></div>
+    <div class="chart-contaier">
+      <div class="title">Servizi PGT</div>
+      <div class="barchart" data="chartPgt" barchart></div>
+    </div>
   </div>
-  <div class="col-md-4">
-    <div data="chartRent" height="100" barchart></div>
-    <div data="airbnb" height="100" candlestick></div>
-    <div data="idealista" height="100" candlestick></div>
+  <div class="col-md-4" style="background:rgba(255,255,255,0.2)">
+    <div class="chart-contaier">
+      <div class="title">Affitti</div>
+      <div data="chartRent" height="100" barchart></div>
+      <div data="airbnb" height="100" candlestick></div>
+      <div data="idealista" height="100" candlestick></div>
+    </div>
   </div>
 </div>

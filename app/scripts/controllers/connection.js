@@ -9,11 +9,29 @@
  */
 angular.module('ancoraApp')
   .controller('ConnectionCtrl', function ($scope, $routeParams, $sce, airbnb, idealista, osm, pgt, area, naviglio, startend) {
+    $scope.areaTitle = $routeParams.area
     $scope.area = area;
     $scope.naviglio = naviglio;
     $scope.airbnb = airbnb;
     $scope.idealista = idealista;
-    $scope.osm = osm;
+    $scope.osm = osm
+    var myArray = []
+    $scope.osm.forEach(function(node){
+      if(node.category == 'pub' || node.category == 'club' || node.category == 'fast food'){
+        node.category = 'pub, club e fast food';
+      }
+      if(node.category == 'agenzia di viaggio' || node.category == 'agenzia immobilliare'){
+        node.category = 'agenzie viaggi o immobilliari';
+      }
+      if(node.category == 'banca' || node.category == 'bancomat'){
+        node.category = 'banche e bancomat';
+      }
+      if(node.category == 'farmacia'||node.category == 'ristoranti'||node.category == 'pub, club e fast food'||node.category =='banca'||node.category == 'acqua potabile'||node.category == 'agenzie viaggi o immobilliari'||node.category == 'taxi'||node.category == 'gelataio'||node.category == 'area gioco'||node.category == 'banche e bancomat' || node.category == 'società' ) {
+        myArray.push(node)
+      }
+    })
+    $scope.osm = myArray;
+
     $scope.pgt = pgt;
     $scope.startend = startend;
     $scope.startTime = startend.filter(function(d){return d.type == 'start'})[0].startTime;

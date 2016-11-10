@@ -1,0 +1,1 @@
+Un percorso lungo più di **7 km** che coinvolge quattro aree della città: Melchiorre Gioia la grande arteria di scorrimento; Garibaldi-Porta Nuova appena investita dal processo di gentrificazione; il centro storico con i negozi chic e l’area C; fino a Ticinese e Darsena simbolo di una città formato cartolina.
