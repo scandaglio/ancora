@@ -35,7 +35,9 @@ h1,h2,h3,h4,h5,h6{
   bottom: 0px;
   top: 0px;
   right: 0px;
-  display: none;
+  display: flex;
+  display: -webkit-flex;
+
   flex-direction: column;
   justify-content: center;
 
@@ -67,18 +69,77 @@ h1,h2,h3,h4,h5,h6{
   color: white;
 }
 
-/*bg-map {
-  position: absolute;
-  width: 100vw;
-  height: 100vh;
-  top:0;
-  left: 0;
-  z-index: -100;
+.bg-map {
+  height: 100%;
+  width: 100%;
+  background: white;
 }
-*/
+
+.prologoText p{
+  background-color: white;
+  color:black;
+  font-size: 20px;
+  padding: 10px;
+  border: 1px solid black;
+}
+
+.titlePrologo{
+  color: black;
+  background-color: white;
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.prologo a.navbar-brand{
+  color: black!important;
+}
+
+.prologo .navbar{
+  background-color: white!important;
+  border-bottom: 1px solid black!important;
+}
+
+.prologoBtn.btn{
+  border-radius: 0px;
+  font-family: 'Space Mono', monospace;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.prologoBtn.btn-default {
+    color: black;
+    background-color: white;
+    border-color: black;
+    transition: all 0.5s;
+}
+
+.prologoBtn.btn-default:hover{
+  background-color: black;
+  color: white;
+}
+
+.prologoBtn.btn:focus{
+  outline: none;
+}
+
+.prologoBtn.btn.active, .btn:active{
+  box-shadow: none;
+}
 
 .cursor-transparent {
   pointer-events: none;
+}
+
+.coverMd p{
+  font-size: 17px;
+  column-count: 2;
+  column-gap: 30px;
+  padding: 15px;
+  border: 1px solid white;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-weight: bold;
 }
 
 /* connection start*/
@@ -221,10 +282,51 @@ a.navbar-brand {
   color: white;
 }
 
-.introHome {
-    /*color: white;*/
+.introHome{
+  text-align: center;
+}
+.introHome p{
     text-decoration: underline;
-    font-size: 26px;
+    font-size: 24px;
+    /*font-weight: bold;*/
+    margin-bottom: 30px;
+}
+
+.introHome h1{
+    font-family: 'Noto Serif', serif;
+    font-size: 35px;
     font-weight: bold;
     margin-bottom: 30px;
+}
+
+.introHome .btn{
+  border-radius: 0px;
+  font-family: 'Space Mono', monospace;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.introHome .btn-default {
+    color: white;
+    background-color: transparent;
+    border-color: white;
+    transition: all 0.5s;
+}
+
+.introHome .btn-default:hover{
+  background-color: white;
+  color: black;
+}
+
+.introHome .btn:focus{
+  outline: none;
+}
+
+.introHome .btn.active, .btn:active{
+  box-shadow: none;
+}
+
+.introHome .esplora{
+  margin-bottom: 20px;
 }

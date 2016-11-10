@@ -1,18 +1,44 @@
-<div class="row">
-  <div class="col-md-6">
-    <videogular class="videoConnection"
-      vg-auto-play="true"
-      vg-player-ready="onPlayerReady($API)">
-        <vg-media vg-src="videoconfig.sources"
-              vg-loop="true"
-              vg-native-controls="false">
-        </vg-media>
-    </videogular>
+<div class="header">
+  <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+        <a class="navbar-brand" href="#/">scandaglio</a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="js-navbar-collapse">
+      </div>
+    </div>
   </div>
-  <div class="col-md-6">
-    <div btf-markdown ng-include="mdUrl"></div>
-    <a class="btn btn-default" ng-href="#/connection/{{area}}">
-      pedala
-    </a>
+</div>
+
+<div class="videoWrapper">
+  <videogular class="videoConnection"
+    vg-auto-play="true"
+    vg-player-ready="onPlayerReady($API)">
+      <vg-media vg-src="videoconfig.sources"
+            vg-loop="true"
+            vg-native-controls="false">
+      </vg-media>
+  </videogular>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="coverMd" btf-markdown ng-include="mdUrl"></div>
+      <span class="introHome">
+        <a class="btn btn-default btn-lg pull-right" ng-href="#/connection/{{area}}">
+          pedala
+        </a>
+      </span>
+    </div>
   </div>
 </div>

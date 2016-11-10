@@ -9,19 +9,35 @@
 angular.module('ancoraApp')
   .directive('bgMap', function () {
     return {
-      template: "<div id='map' style='width: 100%; height: 100%;'></div>",
-      restrict: 'E',
+      replace: false,
+      restrict: 'A',
       link: function postLink(scope, element, attrs) {
 
       	mapboxgl.accessToken = 'pk.eyJ1IjoidGVvIiwiYSI6IllvZUo1LUkifQ.dirqtn275pAKdnqtLM2HSw';
 				var map = new mapboxgl.Map({
-				    container: 'map',
+				    container: element[0],
 				    center: [9.1859,45.4654],
 				    zoom: 12,
 			      maxZoom:16,
-			      minZoom:12,
+			      minZoom:10,
+            interactive:false,
 				    style: 'mapbox://styles/teo/ciu1f5enw00i52iol853ypazc'
 				});
+
+        var bbox = turf.bbox(turf.featureCollection([
+          scope.geometries['melchiorre'].features[0],
+          scope.geometries['isola'].features[0],
+          scope.geometries['centro'].features[0],
+          scope.geometries['darsena'].features[0]
+        ]));
+
+        map.fitBounds([[
+            bbox[0],
+            bbox[1]
+        ], [
+            bbox[2],
+            bbox[3]
+        ]],{padding:100, offset:[200,0]});
 
 				map.on('load', function () {
 				    map.addSource('melchiorre', {
@@ -35,8 +51,9 @@ angular.module('ancoraApp')
 				        'source': 'melchiorre',
 				        'layout': {},
 				        'paint': {
-				            'fill-color': '#088',
-				            'fill-opacity': 0.8
+				            'fill-color': '#fff',
+				            'fill-opacity': 0.8,
+                    'fill-outline-color': 'black',
 				        }
 				    });
 
@@ -51,8 +68,9 @@ angular.module('ancoraApp')
 				        'source': 'isola',
 				        'layout': {},
 				        'paint': {
-				            'fill-color': '#088',
-				            'fill-opacity': 0.8
+				            'fill-color': '#fff',
+				            'fill-opacity': 0.8,
+                    'fill-outline-color': 'black',
 				        }
 				    });
 
@@ -67,8 +85,9 @@ angular.module('ancoraApp')
 				        'source': 'centro',
 				        'layout': {},
 				        'paint': {
-				            'fill-color': '#088',
-				            'fill-opacity': 0.8
+				            'fill-color': '#fff',
+				            'fill-opacity': 0.8,
+                    'fill-outline-color': 'black',
 				        }
 				    });
 
@@ -83,31 +102,95 @@ angular.module('ancoraApp')
 				        'source': 'darsena',
 				        'layout': {},
 				        'paint': {
-				            'fill-color': '#088',
+                   'fill-outline-color': 'black',
+				            'fill-color': '#fff',
 				            'fill-opacity': 0.8
 				        }
 				    });
-
-				    map.addSource('naviglio', {
+            map.addSource('naviglio', {
 				        'type': 'geojson',
 				        'data': scope.geometries['naviglio']
 				    });
 
 				    map.addLayer({
 				        'id': 'naviglio',
-				        'type': 'fill',
+				        'type': 'line',
 				        'source': 'naviglio',
 				        'layout': {},
 				        'paint': {
-				            'fill-color':'rgba(0,0,0,0)',
-				            'fill-outline-color':'#000'
+				            'line-width':2,
+				            'line-color':'#000'
 				        }
 				    });
 
-				    map.setPaintProperty('water', 'fill-color', '#000');
-			      map.setPaintProperty('building', 'fill-color', '#000');
-			      map.setPaintProperty('landuse', 'fill-color', '#000');
-			      map.setPaintProperty('road', 'line-color', '#000');
+            map.addLayer({
+                'id': 'melchiorre-text',
+                'type': 'symbol',
+                'source': 'melchiorre',
+                "layout": {
+                    "text-field": "Melchiorre Gioia",
+                    "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
+                    "text-size": 14,
+                },
+                "paint":{
+                  "text-color": "#fff",
+                  "text-halo-color": "#000000",
+                  "text-halo-width": 2
+                }
+            });
+
+            map.addLayer({
+                'id': 'isola-text',
+                'type': 'symbol',
+                'source': 'isola',
+                "layout": {
+                    "text-field": "Isola / Porta Nuova",
+                    "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
+                    "text-size": 14,
+                },
+                "paint":{
+                  "text-color": "#fff",
+                  "text-halo-color": "#000000",
+                  "text-halo-width": 2
+                }
+            });
+
+            map.addLayer({
+                'id': 'centro-text',
+                'type': 'symbol',
+                'source': 'centro',
+                "layout": {
+                    "text-field": "Centro Storico",
+                    "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
+                    "text-size": 14,
+                },
+                "paint":{
+                  "text-color": "#fff",
+                  "text-halo-color": "#000000",
+                  "text-halo-width": 2
+                }
+            });
+
+            map.addLayer({
+                'id': 'darsena-text',
+                'type': 'symbol',
+                'source': 'darsena',
+                "layout": {
+                    "text-field": "Darsena",
+                    "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
+                    "text-size": 14,
+                },
+                "paint":{
+                  "text-color": "#fff",
+                  "text-halo-color": "#000000",
+                  "text-halo-width": 2
+                }
+            });
+
+				    map.setPaintProperty('water', 'fill-color', '#ccc');
+			      map.setPaintProperty('building', 'fill-color', '#ccc');
+			      map.setPaintProperty('landuse', 'fill-color', '#ccc');
+			      map.setPaintProperty('road', 'line-color', '#ccc');
 				});
 
 
