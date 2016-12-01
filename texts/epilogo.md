@@ -1,0 +1,3 @@
+Un altro passo in avanti per svuotare la città dei suoi abitanti e inondarla di immaginari da favola senza fare i conti con la necessità di avere una città più orizzontale e pubblica. La nuova vocazione turistica (da big event e da convention) di Milano sembra prevalere sulla vecchia idea di Milano operosa, piena di servizi, attiva. La cornice diventa fondamentale rispetto al quadro, ma la mostra regge se porterà visitatori/risultati e se questi risultati verranno ridistribuiti ad una platea sufficientemente ampia.
+
+Che prospettive possono esserci per un canale in centro città? Oltretutto finanziato in parte da quel project financing di cui notiamo di questi tempi le macerie distribuite su tutto il reticolo autostradale lombardo?

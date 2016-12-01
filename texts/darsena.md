@@ -1,0 +1,3 @@
+## Darsena
+
+Ogni maledetto venerdì sera comincia il turbinio della movida nella sua fase suprema: il weekend. L’appuntamento è in Darsena. Nella nuova Darsena, un tempo porto fluviale ed oggi porto ludico per happy hour e consumo spicciolo di massa, e nei navigli accanto si concentrano decine di locali in grado di offrire cocktail del valore medio di un’ora e mezzo di lavoro del salario medio milanese. Un tempo quartiere popolare, oggi Darsena e Ticinese vivono della propria vocazione turistica, cool, in certi angoli vintage. E’ l’archetipo della trasformazione urbana legata alla riapertura dei navigli? O forse è solo un happy hour?
