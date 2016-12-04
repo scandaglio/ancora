@@ -19,7 +19,8 @@ angular
     'ui.bootstrap',
     'angular-loading-bar',
     'btford.markdown',
-    'com.2fdevs.videogular'
+    'com.2fdevs.videogular',
+    "com.2fdevs.videogular.plugins.poster"
   ])
   .config(function ($routeProvider) {
     $routeProvider

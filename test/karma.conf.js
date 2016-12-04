@@ -34,6 +34,7 @@ module.exports = function(config) {
       'bower_components/angular-loading-bar/build/loading-bar.js',
       'bower_components/showdown/src/showdown.js',
       'bower_components/angular-markdown-directive/markdown.js',
+      'bower_components/videogular-poster/vg-poster.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'app/scripts/**/*.js',

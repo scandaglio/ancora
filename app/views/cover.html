@@ -39,15 +39,16 @@
             vg-loop="true"
             vg-native-controls="false">
       </vg-media>
+    <vg-poster vg-url='videoconfig.plugins.poster'></vg-poster>
   </videogular>
 </div>
 
-<div class="container-fluid">
+<div class="container containerPadding">
   <div class="row">
-    <div class="col-md-8 col-md-offset-2">
+    <div class="col-md-5 col-md-offset-1">
       <div class="coverMd" btf-markdown ng-include="mdUrl"></div>
       <span class="introHome">
-        <a class="btn btn-default btn-lg pull-right" ng-href="#/connection/{{area}}">
+        <a class="btn btn-default pull-right btnCover" ng-href="#/connection/{{area}}">
           pedala
           <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
         </a>

@@ -174,14 +174,20 @@ h1,h2,h3,h4,h5,h6{
 }
 
 .coverMd p{
-  font-size: 17px;
-  column-count: 2;
-  column-gap: 30px;
+  font-size: 20px;
   padding: 15px;
   border: 1px solid white;
-  margin-top: 30px;
-  margin-bottom: 30px;
-  font-weight: bold;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.coverMd h3{
+  padding: 10px;
+  border: 1px solid white;
+}
+
+.btnCover{
+  margin-bottom: 20px;
 }
 
 /* connection start*/
@@ -233,9 +239,51 @@ h1,h2,h3,h4,h5,h6{
   height: auto;
 }
 
+/*.videoW img{
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top:0;
+}*/
+
 .videoH video{
   width: auto;
   height: 100%;
+}
+
+videogular vg-poster, [videogular] vg-poster {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  position: absolute;
+  display: block;
+  z-index: 1;
+  top: 0;
+  pointer-events: none;
+}
+
+videogular vg-poster img, [videogular] vg-poster img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  position: absolute;
+}
+
+videogular vg-poster img.pause,
+videogular vg-poster img.play, [videogular] vg-poster img.pause,
+[videogular] vg-poster img.play {
+  display: none;
+}
+
+videogular vg-poster img.stop, [videogular] vg-poster img.stop {
+  display: block;
 }
 
 #chartsConnection{
