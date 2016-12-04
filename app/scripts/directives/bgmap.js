@@ -7,11 +7,15 @@
  * # bgMap
  */
 angular.module('ancoraApp')
-  .directive('bgMap', function () {
+  .directive('bgMap', function ($window) {
     return {
       replace: false,
       restrict: 'A',
       link: function postLink(scope, element, attrs) {
+
+        if($window.innerWidth < 768){
+          return;
+        }
 
       	mapboxgl.accessToken = 'pk.eyJ1IjoidGVvIiwiYSI6IllvZUo1LUkifQ.dirqtn275pAKdnqtLM2HSw';
 				var map = new mapboxgl.Map({
