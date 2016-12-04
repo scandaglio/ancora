@@ -1,12 +1,10 @@
 body{
-  padding-top: 70px;
   font-family: 'Noto Serif', serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing : grayscale;
   text-rendering: optimizeLegibility;
   background-color: black;
   color: white;
-
 }
 
 h1,h2,h3,h4,h5,h6{
@@ -35,8 +33,7 @@ h1,h2,h3,h4,h5,h6{
   bottom: 0px;
   top: 0px;
   right: 0px;
-  display: flex;
-  display: -webkit-flex;
+  display: none;
 
   flex-direction: column;
   justify-content: center;
@@ -70,13 +67,30 @@ h1,h2,h3,h4,h5,h6{
 }
 
 
-.coverHome{
-  height: 100vh;
+.containerPadding{
+  /*padding-top: 70px;*/
+}
+
+.flexWrapper{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: -webkit-flex;
+  -webkit-flex-direction: column;
+  -webkit-justify-content: center;
+  -webkit-align-items: center;
+  padding-top: 70px;
+}
+
+.flexWrapper .row{
+  width: 100%;
 }
 
 #inoltre p{
   font-size: 16px;
-  column-count: 2;
+  column-count: 1;
 }
 
 #info p{
@@ -192,6 +206,7 @@ h1,h2,h3,h4,h5,h6{
   right: 0;
   overflow: hidden;
   z-index: -10;
+  opacity: 0.75;
 }
 
 .videoConnection video{
@@ -327,14 +342,11 @@ a.navbar-brand {
   color: white;
 }
 
-.introHome{
-  text-align: center;
-}
-.introHome p{
+
+.introHomeText p{
     text-decoration: underline;
     font-size: 24px;
-    /*font-weight: bold;*/
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .introHome h1{
@@ -376,6 +388,11 @@ a.navbar-brand {
   margin-bottom: 20px;
 }
 
+.homeControls{
+  text-align: left;
+  margin-top: 10px;
+}
+
 .introEpilogo p{
     font-size: 24px;
     /*font-weight: bold;*/
@@ -396,4 +413,44 @@ a.navbar-brand {
     margin-bottom: 30px;
     line-height: 50px;
     text-decoration: line-through;
+}
+
+@media (min-width: 1200px){
+  .container {
+      width: inherit;
+  }
+}
+
+@media (min-width: 768px){
+  #contactus{
+    display: flex;
+    display: -webkit-flex;
+  }
+/*
+  #navbar .navbar-right {
+      display: none!important;
+  }
+
+  .navbar-fixed-bottom .navbar-collapse,
+  .navbar-fixed-top .navbar-collapse {
+      background-color: transparent;
+  }
+
+  #navbar>ul:not(.navbar-right) li>a:before{
+    content: "| "
+  }
+
+  .navbar-nav:not(.navbar-right) {
+    border-bottom: none;
+  }*/
+
+  .homeControls{
+    text-align: right;
+  }
+
+  #inoltre p {
+    -moz-column-count: 2;
+    column-count: 2;
+  }
+
 }
