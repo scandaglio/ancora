@@ -40,10 +40,21 @@
       </vg-media>
   </videogular>
 </div>
-<div class="container-fluid" id="containerConnection">
+<div class="container" id="containerConnection">
   <div class="row" id="mapConnection">
     <div class="col-md-12 fullHeight">
-      <div class="fullHeight" mapconnection></div>
+      <div class="fullHeight relative" mapconnection></div>
+      <div class="prevConnection introHome">
+        <a ng-href="#/{{prev}}" class="btn btn-default" ng-class="{'disabled': !prev}" labelconnection>
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+          <span class="labelConnection"> {{prevLabel}}</span>
+        </a>
+      </div>
+      <div class="nextConnection introHome">
+        <a ng-href="#/{{next}}" class="btn btn-default" ng-class="{'disabled': !next}" labelconnection>
+          <span class="labelConnection">{{nextLabel}} </span><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        </a>
+      </div>
     </div>
   </div>
   <div class="row" id="chartsConnection">

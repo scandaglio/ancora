@@ -59,7 +59,10 @@ angular.module('ancoraApp')
                 .attr("y", function(d) { return y(d.key); })
                 .attr('fill', 'white')
                 .attr("height", y.bandwidth())
-                .attr("width", function(d) { return x(d.value); });
+                .attr("width", function(d) { return x(0); })
+                .transition()
+                .duration(500)
+                .attr("width", function(d) { return x(d.value); })
 
             g.selectAll(".barValue")
               .data(data)
@@ -67,12 +70,28 @@ angular.module('ancoraApp')
                 .attr("class", "barValue")
                 .attr("alignment-baseline", "central")
                 .attr("text-anchor","end")
-                .attr("x", function(d) { return (x(d.value) - 2) })
+                .attr("x", function(d) {
+                  if(x(d.value)<10){
+                    return (x(d.value) + 8)
+                  }else{
+                    return (x(d.value) - 2)
+                  }
+                })
                 .attr("y", function(d) { return y(d.key)+(y.bandwidth()/2); })
-                .attr('fill', 'black')
+                .attr('fill', function(d){
+                  if(x(d.value)<10){
+                    return "white"
+                  }else{
+                    return "black"
+                  }
+                })
+                .attr("opacity", 0)
                 .text(function(d){
                     return d.value
                 })
+                .transition()
+                .duration(500)
+                .attr("opacity", 1)
       }
     };
   });

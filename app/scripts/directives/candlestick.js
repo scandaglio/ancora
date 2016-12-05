@@ -56,6 +56,10 @@ angular.module('ancoraApp')
               return i == 1
             })
             .attr("r", 4)
+            .attr("cx", function(d){return x(0)})
+            .transition()
+            .duration(500)
+            .attr("cx", function(d){return x(d)})
 
         g.append("text")
             .attr("class", "legendText")
@@ -80,6 +84,10 @@ angular.module('ancoraApp')
               })
               .attr("y", (height/2)-10)
               .text(function(d){return d + '€'})
+              .attr('opacity',0)
+              .transition()
+              .duration(500)
+              .attr('opacity',1)
       }
     };
   });

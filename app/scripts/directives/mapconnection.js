@@ -13,6 +13,9 @@ angular.module('ancoraApp')
       replace: false,
       link: function postLink(scope, element, attrs) {
 
+        var markerPlay;
+        var opacityController = d3.select(element[0]).style('opacity',0);
+
         var startend = togeojsonFilter(scope.startend, ['type', 'startTime']);
         var startPoint = startend.features.filter(function(d){return d.properties.type == 'start'})[0],
             endPoint = startend.features.filter(function(d){return d.properties.type == 'end'})[0]
@@ -186,6 +189,34 @@ angular.module('ancoraApp')
               }
           });
 
+          var el = d3.select(element[0]).append('div');
+          el.attr("class","markerPlay");
+          el.append('span')
+            .attr("class", "glyphicon glyphicon-pause")
+
+          el.on('click',function(d){
+            scope.videoAPI.playPause();
+            if(scope.videoAPI.currentState == 'play'){
+              d3.select(this).select('.glyphicon')
+                .classed('glyphicon-pause', true)
+                .classed('glyphicon-play', false)
+            }else{
+              d3.select(this).select('.glyphicon')
+                .classed('glyphicon-pause', false)
+                .classed('glyphicon-play', true)
+            }
+
+          })
+
+          markerPlay = new mapboxgl.Marker(el.node(),{'offset':[-12,-12]})
+          	.setLngLat(startPoint.geometry.coordinates)
+          	.addTo(map);
+
+          opacityController
+            .transition()
+            .duration(500)
+            .style('opacity', 1)
+
           $timeout(function(){
             scope.videoAPI.play();
           }, 1500);
@@ -199,6 +230,7 @@ angular.module('ancoraApp')
               var km = distanceScale(newValue);
               var newPoint = turf.along(sliced, km, 'kilometers');
               map.getSource('pointer').setData(newPoint);
+              markerPlay.setLngLat(newPoint.geometry.coordinates)
             }
           }//end if change
         })

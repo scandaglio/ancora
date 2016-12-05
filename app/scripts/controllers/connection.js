@@ -13,13 +13,32 @@ angular.module('ancoraApp')
     var videoRatio = 16/9;
 
     $scope.videoClass=ratio<=videoRatio?'videoH':'videoW'
-    
-    $scope.areaTitle = $routeParams.area
+
+    $scope.areaTitle = $routeParams.area;
     $scope.area = area;
     $scope.naviglio = naviglio;
     $scope.airbnb = airbnb;
     $scope.idealista = idealista;
     $scope.osm = osm
+
+    var areas = [
+      {slug:'melchiorre', label:'Melchiorre Gioia'},
+      {slug:'isola', label:'Isola / Porta Nuova'},
+      {slug:'centro', label:'Centro Storico'},
+      {slug:'darsena', label:'Darsena'}
+    ];
+
+    var indexArea;
+    areas.forEach(function(d,i){
+      if(d.slug==$scope.areaTitle){
+        indexArea = i;
+      }
+    });
+
+    $scope.next = indexArea<(areas.length-1)?'cover/'+areas[indexArea+1].slug:'epilogo';
+    $scope.nextLabel = indexArea<(areas.length-1)?areas[indexArea+1].label:'epilogo';
+    $scope.prev = indexArea>(0)?'cover/'+areas[indexArea-1].slug:'prologo';
+    $scope.prevLabel = indexArea>(0)?areas[indexArea-1].label:'prologo';
 
     $scope.pgtCategory = [
       'Cultura',

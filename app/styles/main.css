@@ -194,7 +194,6 @@ h1,h2,h3,h4,h5,h6{
 
 #containerConnection{
   height: 100vh;
-  margin-top: -70px;
   overflow: hidden;
   /*display: flex;
   flex-direction: column;
@@ -205,6 +204,40 @@ h1,h2,h3,h4,h5,h6{
   -webkit-justify-content: center;
   -webkit-align-items: center;*/
   /*padding-top:70px;*/
+}
+
+.prevConnection,
+.nextConnection{
+  position: absolute;
+  top:50%;
+}
+
+.prevConnection .labelConnection,
+.nextConnection .labelConnection{
+  display: none;
+}
+
+.nextConnection{
+  right: 15px;
+}
+
+.markerPlay{
+  border: 2px solid black;
+  width: 24px;
+  height: 24px;
+  background: white;
+  color: black;
+  cursor: pointer;
+  border-radius: 50%;
+  text-align: center;
+}
+
+.markerPlay .glyphicon{
+  line-height: 1.5;
+}
+
+.relative{
+  position: relative;
 }
 
 .videoWrapper{

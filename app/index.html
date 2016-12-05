@@ -24,9 +24,8 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <!-- Add your site or application content here -->
-    <div id="contactus">
-        <a href="mailto:offtopic@autoproduzioni.net">
+    <div id="contactus" ng-controller="ContactCtrl">
+        <a ng-if="location!='connection'" href="mailto:offtopic@autoproduzioni.net">
           offtopic@autoproduzioni.net
         </a>
     </div>
@@ -70,6 +69,8 @@
         <script src="scripts/directives/bgmap.js"></script>
         <script src="scripts/directives/scrollonclick.js"></script>
         <script src="scripts/directives/bgmapmini.js"></script>
+        <script src="scripts/controllers/contact.js"></script>
+        <script src="scripts/directives/labelconnection.js"></script>
         <!-- endbuild -->
 </body>
 </html>
