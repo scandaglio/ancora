@@ -24,6 +24,9 @@ angular.module('ancoraApp')
     $scope.videoconfig = {
       sources: [
         {src: $sce.trustAsResourceUrl("videos/epilogo.mp4"), type: "video/mp4"}
-      ]
+      ],
+      plugins: {
+        poster: "images/epilogo.png"
+      }
     }
   });

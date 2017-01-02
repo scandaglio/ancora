@@ -26,7 +26,7 @@ angular.module('ancoraApp')
         {src: $sce.trustAsResourceUrl("videos/"+$scope.area+".mp4"), type: "video/mp4"}
       ],
       plugins: {
-        poster: "http://www.videogular.com/assets/images/videogular.png"
+        poster: "images/cover-" + $scope.area + ".png"
       }
     }
 

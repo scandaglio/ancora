@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
   </head>
-  <body ng-app="ancoraApp">
+  <body ng-app="ancoraApp" bs-breakpoint>
     <!--[if lte IE 8]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -30,6 +30,21 @@
         </a>
     </div>
     <div ng-view=""></div>
+    <div class="visible-xs visible-sm">
+      <div class="splashMobile">
+        <div>
+          <p>
+            <b>Scusa!</b>
+          </p>
+          <p>
+            Per vedere questo sito devi essere su desktop :(
+          </p>
+          <p>
+            <a href="mailto:?Subject=%5BScandaglio%202%5D%20La%20scoperta%20del%20naviglio&Body=http%3A//www.offtopiclab.org/scandaglio%0A%0Aciao%21">Mandati una e-mail</a> come reminder.
+          </p>
+        </div>
+      </div>
+    </div>
 
     <script src='https://api.mapbox.com/mapbox-gl-js/v0.26.0/mapbox-gl.js'></script>
     <script src='https://npmcdn.com/@turf/turf@3.5.1/turf.min.js'></script>
@@ -51,6 +66,8 @@
     <script src="bower_components/showdown/src/showdown.js"></script>
     <script src="bower_components/angular-markdown-directive/markdown.js"></script>
     <script src="bower_components/videogular-poster/vg-poster.js"></script>
+    <script src="bower_components/re-tree/re-tree.js"></script>
+    <script src="bower_components/ng-device-detector/ng-device-detector.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -71,6 +88,8 @@
         <script src="scripts/directives/bgmapmini.js"></script>
         <script src="scripts/controllers/contact.js"></script>
         <script src="scripts/directives/labelconnection.js"></script>
+        <script src="scripts/directives/bsbreakpoint.js"></script>
+        <script src="scripts/controllers/data.js"></script>
         <!-- endbuild -->
 </body>
 </html>

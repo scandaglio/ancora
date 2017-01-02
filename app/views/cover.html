@@ -13,18 +13,14 @@
         <a class="navbar-brand" href="#/">scandaglio</a>
       </div>
 
-      <div class="navbar-collapse collapse">
+      <div class="navbar-collapse collapse" id="js-navbar-collapse">
         <ul class="nav navbar-nav">
-              <li><a href="#/prologo">Prologo</a></li>
-              <li><a href="#/cover/melchiorre">Melchiorre Gioia</a></li>
-              <li class="connection"><a href="#/connection/melchiorre"><i class="fa fa-bicycle" aria-hidden="true"></i></a></li>
-              <li><a href="#/cover/isola">Isola / Porta Nuova</a></li>
-              <li class="connection"><a href="#/connection/isola"><i class="fa fa-bicycle" aria-hidden="true"></i></a></li>
-              <li><a href="#/cover/centro">Centro Storico</a></li>
-              <li class="connection"><a href="#/connection/centro"><i class="fa fa-bicycle" aria-hidden="true"></i></a></li>
-              <li><a href="#/cover/darsena">Darsena</a></li>
-              <li class="connection"><a href="#connection/darsena"><i class="fa fa-bicycle" aria-hidden="true"></i></a></li>
-              <li><a href="#/epilogo">Epilogo</a></li>
+          <li><a href="#/prologo">Prologo</a></li>
+          <li><a href="#/cover/melchiorre" ng-class="{'active': area == 'melchiorre'}" >Melchiorre Gioia</a></li>
+          <li><a href="#/cover/isola" ng-class="{'active': area == 'isola'}">Isola / Porta Nuova</a></li>
+          <li><a href="#/cover/centro" ng-class="{'active': area == 'centro'}">Centro Storico</a></li>
+          <li><a href="#/cover/darsena" ng-class="{'active': area == 'darsena'}">Darsena</a></li>
+          <li><a href="#/epilogo">Epilogo</a></li>
           </ul>
       </div>
     </div>

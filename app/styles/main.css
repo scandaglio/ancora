@@ -5,6 +5,8 @@ body{
   text-rendering: optimizeLegibility;
   background-color: black;
   color: white;
+  height: 100vh;
+  overflow: hidden;
 }
 
 h1,h2,h3,h4,h5,h6{
@@ -104,7 +106,7 @@ h1,h2,h3,h4,h5,h6{
 }
 
 #info p a:hover{
-  text-decoration: line-through;;
+  text-decoration: line-through;
   color: white;
 }
 
@@ -132,6 +134,10 @@ h1,h2,h3,h4,h5,h6{
 }
 
 .prologo a.navbar-brand{
+  color: black!important;
+}
+
+.prologo a{
   color: black!important;
 }
 
@@ -241,14 +247,14 @@ h1,h2,h3,h4,h5,h6{
 }
 
 .videoWrapper{
-  position: fixed;
-  left:0;
-  top:0;
-  bottom: 0;
-  right: 0;
+  /*position: fixed;
+  left:0;*/
+  margin-top:50px;
+  /*bottom: 0;
+  right: 0;*/
   overflow: hidden;
-  z-index: -10;
-  opacity: 0.75;
+  opacity: 1;
+  /*z-index: 10;*/
 }
 
 .mapWrapper{
@@ -267,10 +273,6 @@ h1,h2,h3,h4,h5,h6{
   height: auto;
 }
 
-.videoW video{
-  width: 100%;
-  height: auto;
-}
 
 /*.videoW img{
   width: 100%;
@@ -279,9 +281,10 @@ h1,h2,h3,h4,h5,h6{
   top:0;
 }*/
 
-.videoH video{
-  width: auto;
-  height: 100%;
+.videoW video, .videoH video{
+  width: 160%;
+  margin-left: -30%;
+  height: auto;
 }
 
 videogular vg-poster, [videogular] vg-poster {
@@ -432,7 +435,8 @@ a.navbar-brand {
   padding-bottom: 2px;
 }
 
-.navbar-default .navbar-nav > li > a:hover{
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a.active{
   text-decoration: line-through;
   color: white;
 }
@@ -510,6 +514,39 @@ a.navbar-brand {
     text-decoration: line-through;
 }
 
+.splashMobile{
+  position: absolute;
+  top:0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  background-color: rgba(255, 255, 255, 0.90);
+  z-index: 9999;
+  text-align: center;
+  display: flex!important;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: -webkit-flex!important;
+  -webkit-flex-direction: column;
+  -webkit-justify-content: center;
+  -webkit-align-items: center;
+  padding: 20px;
+  font-size: 18px;
+  color: black;
+}
+
+.splashMobile a{
+  color: black;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.splashMobile a:hover{
+  color: black;
+  text-decoration: underline;
+}
+
 @media (min-width: 1200px){
   .container {
       width: inherit;
@@ -517,6 +554,12 @@ a.navbar-brand {
 }
 
 @media (min-width: 768px){
+
+  body{
+    height: auto;
+    overflow: auto;
+  }
+
   #contactus{
     display: flex;
     display: -webkit-flex;
@@ -552,6 +595,30 @@ a.navbar-brand {
     height: 100%;
     border: none;
     margin-bottom: 0px;
+  }
+
+  .videoWrapper {
+    position: fixed;
+    left: 0;
+    top: 0px;
+    bottom: 0;
+    right: 0;
+    overflow: hidden;
+    z-index: -10;
+    opacity: 0.75;
+    margin-top: 0px;
+  }
+
+  .videoW video{
+    width: 100%;
+    height: auto;
+    margin-left: 0px;
+  }
+
+  .videoH video{
+    width: auto;
+    height: 100%;
+    margin-left: 0px;
   }
 
 }

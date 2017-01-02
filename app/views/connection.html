@@ -13,17 +13,13 @@
         <a class="navbar-brand" href="#/">scandaglio</a>
       </div>
 
-      <div class="navbar-collapse collapse">
+      <div class="navbar-collapse collapse" id="js-navbar-collapse">
         <ul class="nav navbar-nav">
               <li><a href="#/prologo">Prologo</a></li>
-              <li><a href="#/cover/melchiorre">Melchiorre Gioia</a></li>
-              <li class="connection"><a href="#/connection/melchiorre"><i class="fa fa-bicycle" aria-hidden="true"></i></a></li>
-              <li><a href="#/cover/isola">Isola / Porta Nuova</a></li>
-              <li class="connection"><a href="#/connection/isola"><i class="fa fa-bicycle" aria-hidden="true"></i></a></li>
-              <li><a href="#/cover/centro">Centro Storico</a></li>
-              <li class="connection"><a href="#/connection/centro"><i class="fa fa-bicycle" aria-hidden="true"></i></a></li>
-              <li><a href="#/cover/darsena">Darsena</a></li>
-              <li class="connection"><a href="#connection/darsena"><i class="fa fa-bicycle" aria-hidden="true"></i></a></li>
+              <li><a href="#/cover/melchiorre" ng-class="{'active': areaTitle == 'melchiorre'}" >Melchiorre Gioia</a></li>
+              <li><a href="#/cover/isola" ng-class="{'active': areaTitle == 'isola'}">Isola / Porta Nuova</a></li>
+              <li><a href="#/cover/centro" ng-class="{'active': areaTitle == 'centro'}">Centro Storico</a></li>
+              <li><a href="#/cover/darsena" ng-class="{'active': areaTitle == 'darsena'}">Darsena</a></li>
               <li><a href="#/epilogo">Epilogo</a></li>
           </ul>
       </div>
@@ -38,10 +34,11 @@
       <vg-media vg-src="videoconfig.sources"
             vg-native-controls="false">
       </vg-media>
+      <vg-poster vg-url='videoconfig.plugins.poster'></vg-poster>
   </videogular>
 </div>
 <div class="container" id="containerConnection">
-  <div class="row" id="mapConnection">
+  <div class="row" id="mapConnection" ng-if="breakpoint">
     <div class="col-md-12 fullHeight">
       <div class="fullHeight relative" mapconnection></div>
       <div class="prevConnection introHome">
@@ -75,7 +72,7 @@
         <h5>Numero Affitti</h5>
         <div data="chartRent" height="70" marginleft="100" barchart></div>
         <div data="airbnb" height="40" legend="prezzo a notte airbnb" candlestick></div>
-        <div data="idealista" height="40" legend="prezzo al m2 idealista" candlestick></div>
+        <div data="idealista" height="40" legend="prezzo mese/m2 idealista" candlestick></div>
       </div>
     </div>
   </div>

@@ -20,7 +20,8 @@ angular
     'angular-loading-bar',
     'btford.markdown',
     'com.2fdevs.videogular',
-    "com.2fdevs.videogular.plugins.poster"
+    "com.2fdevs.videogular.plugins.poster",
+    "ng.deviceDetector"
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -89,6 +90,11 @@ angular
         templateUrl: 'views/epilogo.html',
         controller: 'EpilogoCtrl',
         controllerAs: 'epilogo'
+      })
+      .when('/data', {
+        templateUrl: 'views/data.html',
+        controller: 'DataCtrl',
+        controllerAs: 'data'
       })
       .otherwise({
         redirectTo: '/'

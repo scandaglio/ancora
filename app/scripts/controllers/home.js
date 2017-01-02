@@ -24,7 +24,10 @@ angular.module('ancoraApp')
     $scope.videoconfig = {
       sources: [
         {src: $sce.trustAsResourceUrl("videos/home.mp4"), type: "video/mp4"}
-      ]
+      ],
+      plugins: {
+        poster: "images/home.png"
+      }
     }
 
   });

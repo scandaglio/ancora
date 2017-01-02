@@ -35,6 +35,8 @@ module.exports = function(config) {
       'bower_components/showdown/src/showdown.js',
       'bower_components/angular-markdown-directive/markdown.js',
       'bower_components/videogular-poster/vg-poster.js',
+      'bower_components/re-tree/re-tree.js',
+      'bower_components/ng-device-detector/ng-device-detector.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'app/scripts/**/*.js',

@@ -8,7 +8,7 @@
  * Controller of the ancoraApp
  */
 angular.module('ancoraApp')
-  .controller('ConnectionCtrl', function ($scope, $routeParams, $sce, airbnb, idealista, osm, pgt, area, naviglio, startend, $window) {
+  .controller('ConnectionCtrl', function ($scope, $routeParams, $sce, airbnb, idealista, osm, pgt, area, naviglio, startend, $window,deviceDetector) {
     var ratio = $window.innerWidth/$window.innerHeight;
     var videoRatio = 16/9;
 
@@ -19,7 +19,8 @@ angular.module('ancoraApp')
     $scope.naviglio = naviglio;
     $scope.airbnb = airbnb;
     $scope.idealista = idealista;
-    $scope.osm = osm
+    $scope.osm = osm;
+    $scope.browser = deviceDetector.browser;
 
     var areas = [
       {slug:'melchiorre', label:'Melchiorre Gioia'},
@@ -104,10 +105,14 @@ angular.module('ancoraApp')
       $scope.videoAPI.seekTime(+$scope.startTime);
     };
 
+    var videoPath = $scope.browser=='safari'?'path.mp4#t='+$scope.startTime:'path.mp4';
     $scope.videoconfig = {
       sources: [
-        {src: $sce.trustAsResourceUrl("videos/path.mp4"), type: "video/mp4"}
-      ]
+        {src: $sce.trustAsResourceUrl("videos/"+videoPath), type: "video/mp4"}
+      ],
+      plugins: {
+        poster: "images/connection-" + $scope.areaTitle +".png"
+      }
     }
 
     $scope.onUpdateTime = function(currentTime, totalTime) {
@@ -116,6 +121,22 @@ angular.module('ancoraApp')
         $scope.videoAPI.pause()
       }
     };
+
+    var getBreakpoint = function() {
+            var windowWidth = $window.innerWidth;
+
+            if(windowWidth < 768) {
+                return false;
+            } else if (windowWidth >= 768 && windowWidth < 992) {
+                return false;
+            } else if (windowWidth >= 992 && windowWidth < 1200) {
+                return true;
+            } else if (windowWidth >= 1200) {
+                return true;
+            }
+        };
+
+    $scope.breakpoint = getBreakpoint();
 
     function formatData(data, accessor){
       var data = d3.nest()
