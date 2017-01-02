@@ -19,10 +19,10 @@ Andiamo con ordine :)
 
 ##Processo
 Come primo passo abbiamo messo su mappa il percorso del Naviglio tramite la piattaforma online [carto](http://www.carto.com)
-![percorso](images/percorso.png)
+![percorso](images-md/percorso.png)
 
 Successivamente ci siamo concentrati sull'area di Milano e abbiamo suddiviso il percorso in 4 aree di interesse, disegnandole con [geojson.io](http://geojson.io) e importandolo in [Carto](http://carto.com).
-![aree](images/aree.png)
+![aree](images-md/aree.png)
 Potete trovare i _.geojson_ qui:
 
 - [Melchiorre Gioia](data/melchiorre.json)
@@ -33,7 +33,7 @@ Potete trovare i _.geojson_ qui:
 Dopo diversi giorni sopralluoghi abbiamo prodotto due output video per ogni area:
 
 dei dettagli significativi:
-![dettagli](images/dettagli.gif)
+![dettagli](images-md/dettagli.gif)
 Potete trovare i video qui:
 
 - [Melchiorre Gioia](videos/melchiorre.mp4)
@@ -42,7 +42,7 @@ Potete trovare i video qui:
 - [Darsena](videos/darsena.mp4)
 
 l'attraversamento in bicicletta con ripresa frontale:
-![bici](images/bici.gif)
+![bici](images-md/bici.gif)
 Potete trovare il video qui:
 
 - [Percorso bici](videos/path.mp4)
@@ -52,10 +52,10 @@ Potete trovare il video qui:
 Per quanto riguarda i servizi sul territorio abbiamo preso come sorgente un [.pdf](http://mediagallery.comune.milano.it/cdm/objects/changeme:63910/datastreams/dataStream10354039052621674/content?pgpath=ist_it_contentlibrary/sa_sitecontent/utilizza_servizi/territorio/pianificazione_urbanistica_generale/piano_governo_territorio_vigente/piano_servizi_vigente/pds_nil_new) pubblicato sul sito del [comune di Milano](http://www.comune.milano.it/wps/portal/ist/it/servizi/territorio/pianificazione_urbanistica_generale/piano_governo_territorio_vigente/piano_servizi_vigente/pds_nil_new) contenente una lista esaustiva e categorizzata di serivzi pubblici presenti sul territorio (diviso per N.I.L).
 Purtroppo non abbiamo trovato dei formati riutilizzabili (se sapete dove trovarlo segnalatecelo!) e il _pdf_ non conteneva infomazioni geografiche se non l'indirizzo.
 Non ci siamo di certo arresi davanti a questo ostacolo. Tramite il software libero [Tabula](http://tabula.technology/) abbiamo trasformato le tabelle del pdf in _.csv_ in modo da _liberarlo_
-![tabula](images/tabula.gif)
+![tabula](images-md/tabula.gif)
 
 Da qui abbiamo dovuto recuperare le coordinate di ogni luogo per poter successivamente filtrare solo quelli presenti delle nostre aree di interesse. Abbiamo utilizzato un servizio API di geocoding offerto da [Mapzen](https://mapzen.com/documentation/search/) e, con una serie di semplici script (ovvero dei piccoli software che automatizzano dei passaggi), abbiamo recuperato le coordinate di circa 4000 luoghi e filtrati per ogni area mantenendo la tipologia del luogo come informazione.
-![pgt](images/pgt.png)
+![pgt](images-md/pgt.png)
 Potete trovare il file finale qui:
 
 - [Pgt](data/pgt.tsv)
@@ -64,7 +64,7 @@ Altra sorgente dati è stata [Openstreetmap](http://www.openstreetmap.org), una 
 Pur essendo al corrente della parzialità dei dati raccolti, abbiamo voluto provare a vedere che dati riuscivamo ad estrarre per ognuna delle nostre aree.
 Oltre le informazionisulle strade (edifici, ect) in OSM possiamo trovare i POI (Point of Interest) che contengono informazioni interessati dal posizionamento delle panchine ai servizi commerciali.
 Tramite il servizio [overpass turbo](https://overpass-turbo.eu/),che si appoggia sulle [Overpass API](http://wiki.openstreetmap.org/wiki/Overpass_API), un  abbiamo scaricato e filtrato le informazioni che ci interessavano.
-![overpass](images/overpass.gif)
+![overpass](images-md/overpass.gif)
 
 Potete trovare il file finale qui:
 
@@ -75,7 +75,7 @@ Per idealista abbiamo fatto richiesta per accedere alle loro API che purtroppo n
 
 Airbnb non ha un servizio di API ufficiale, per fortuna qualcuno ha fatto [reverse-engineering](https://it.wikipedia.org/wiki/Reverse_engineering) dell'applicazione mobile e ha [reso disponibile](http://airbnbapi.org/) le informazioni necessarie per scaricare i dati.
 Anche qui abbiamo scaricato il numero di affitti e il prezzo a notte per una persona per ogni annuncio.
-![affitti](images/affitti.png)
+![affitti](images-md/affitti.png)
 
 Potete trovare il file finale qui:
 
